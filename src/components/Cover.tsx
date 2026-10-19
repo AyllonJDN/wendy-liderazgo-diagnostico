@@ -7,8 +7,8 @@ export default function Cover({ onStart }: { onStart: () => void }) {
     <section className="gradient-bg on-gradient relative overflow-hidden min-h-screen">
       <Star size={40} color="var(--yellow)" className="absolute left-[46%] top-[14%] hidden md:block" />
       <Star size={18} color="#fff" className="absolute left-[8%] top-[48%] hidden md:block" />
-      <div className="wrap relative grid md:grid-cols-[1.1fr_1fr] gap-6 md:max-w-[84rem] pt-6 md:pt-8 min-h-screen">
-        <div className="flex flex-col pb-10 md:pb-14 z-10">
+      <div className="wrap relative grid gap-6 pt-6 md:pt-8 min-h-screen">
+        <div className="flex flex-col pb-10 md:pb-14 z-10 md:w-[58%]">
           <header className="flex items-center justify-between text-sm">
             <Logo />
             <span className="flex items-center gap-4">
@@ -53,14 +53,14 @@ export default function Cover({ onStart }: { onStart: () => void }) {
           </div>
         </div>
 
-        <div className="relative flex items-end justify-center md:justify-end self-end">
+        <div className="relative flex items-end justify-center self-end md:absolute md:bottom-0 md:right-10 md:h-[96%] md:self-auto">
           <Image
             src="/wendy-portada.png"
             alt="Wendy Wünder"
             width={919}
             height={1733}
             priority
-            className="h-auto w-[78%] sm:w-[60%] md:w-full max-w-[36rem] md:max-h-[98vh] object-contain object-bottom"
+            className="h-auto w-[78%] sm:w-[60%] md:h-full md:w-auto md:max-w-none object-contain object-bottom"
           />
         </div>
       </div>

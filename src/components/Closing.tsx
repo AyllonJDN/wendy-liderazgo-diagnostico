@@ -18,8 +18,8 @@ export default function Closing({ insight, commitment, retest, onChange, onDownl
   return (
     <section className="gradient-bg on-gradient relative overflow-hidden">
       <Star size={36} color="var(--yellow)" className="absolute right-[40%] top-14 hidden md:block" />
-      <div className="wrap md:max-w-[84rem] grid md:grid-cols-[1.2fr_1fr] gap-8 pt-12 md:pt-20 pb-0 items-stretch">
-        <div className="pb-12 md:pb-20">
+      <div className="wrap relative grid gap-8 pt-12 md:pt-20 pb-0">
+        <div className="pb-12 md:pb-20 md:w-[58%]">
           <p className="kicker flex items-center gap-3 mb-4">
             <Star size={12} color="var(--yellow)" /> {CLOSING.kicker}
           </p>
@@ -80,8 +80,8 @@ export default function Closing({ insight, commitment, retest, onChange, onDownl
           </div>
         </div>
 
-        <div className="flex items-end justify-center md:justify-end">
-          <Image src="/wendy-cierre.png" alt="Wendy Wünder celebrando" width={951} height={2475} className="h-auto w-[70%] sm:w-[50%] md:w-full max-w-[26rem] md:max-h-[95vh] object-contain object-bottom" />
+        <div className="flex items-end justify-center md:absolute md:bottom-0 md:right-10 md:h-[80%]">
+          <Image src="/wendy-cierre.png" alt="Wendy Wünder celebrando" width={951} height={2475} className="h-auto w-[70%] sm:w-[50%] md:h-full md:w-auto md:max-w-none object-contain object-bottom" />
         </div>
       </div>
     </section>
