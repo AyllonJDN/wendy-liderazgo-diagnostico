@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { CLOSING } from "@/data/leadership";
 import { addDays, toISODate } from "@/lib/diagnosis";
-import { Socials, Star } from "./ui";
+import { Star } from "./ui";
 
 type Props = {
   insight: string;
@@ -61,20 +61,6 @@ export default function Closing({ insight, commitment, retest, onChange, onDownl
             <p className="text-sm mt-3 opacity-90">Tus respuestas se guardan solo en este dispositivo.</p>
           </div>
 
-          <hr className="rule my-10" />
-          <p className="text-lg">{CLOSING.ctaLead}</p>
-          <p className="display text-3xl md:text-4xl">
-            <em>{CLOSING.ctaStrong}</em>
-          </p>
-          <a
-            className="btn btn-light mt-6"
-            href="https://calendly.com/infowendywunder/30min"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Quiero agendar una llamada
-          </a>
-          <Socials className="mt-5" />
         </div>
 
         <div className="flex items-end justify-center md:absolute md:bottom-0 md:right-10 md:h-[80%]">

@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import { addDays, diagnose, emptyAnswers, formatDate, formatISO, isComplete, isValidAnswer, toISODate, type Answers } from "@/lib/diagnosis";
 import Cover from "./Cover";
 import Intro from "./Intro";
-import Questions, { LAST_POS } from "./Questions";
+import Questions from "./Questions";
 import Results from "./Results";
 import Plan from "./Plan";
 import Closing from "./Closing";
@@ -14,7 +14,6 @@ type Stage = "cover" | "intro" | "questions" | "results" | "plan" | "closing";
 
 type State = {
   stage: Stage;
-  pos: number;
   answers: Answers;
   done: Record<string, boolean>;
   insight: string;
@@ -23,7 +22,7 @@ type State = {
 };
 
 const KEY = "wendy-liderazgo-diagnostico:v1";
-const initial = (): State => ({ stage: "cover", pos: 0, answers: emptyAnswers(), done: {}, insight: "", commitment: "", retest: null });
+const initial = (): State => ({ stage: "cover", answers: emptyAnswers(), done: {}, insight: "", commitment: "", retest: null });
 const STAGES: Stage[] = ["cover", "intro", "questions", "results", "plan", "closing"];
 
 function load(): State | null {
@@ -37,7 +36,6 @@ function load(): State | null {
     const needsAnswers = stage === "results" || stage === "plan" || stage === "closing";
     return {
       stage: needsAnswers && !isComplete(answers) ? "questions" : stage,
-      pos: Number.isInteger(p.pos) ? Math.min(Math.max(p.pos as number, 0), LAST_POS) : 0,
       answers,
       done: p.done && typeof p.done === "object" ? p.done : {},
       insight: typeof p.insight === "string" ? p.insight : "",
@@ -72,7 +70,7 @@ export default function DiagnosisApp() {
 
   useEffect(() => {
     if (ready) window.scrollTo({ top: 0 });
-  }, [st.stage, st.pos, ready]);
+  }, [st.stage, ready]);
 
   const diagnosis = useMemo(() => diagnose(st.answers), [st.answers]);
   const patch = (p: Partial<State>) => setSt((s) => ({ ...s, ...p }));
@@ -148,15 +146,13 @@ export default function DiagnosisApp() {
         {st.stage === "questions" && (
           <Questions
             answers={st.answers}
-            pos={st.pos}
             complete={!!diagnosis}
             onAnswer={(i, v) => setSt((s) => ({ ...s, answers: s.answers.map((a, j) => (j === i ? v : a)) }))}
-            onPos={(pos) => patch({ pos })}
             onFinish={finish}
             onIntro={() => go("intro")}
           />
         )}
-        {st.stage === "results" && diagnosis && <Results d={diagnosis} onPlan={() => go("plan")} onEdit={() => patch({ stage: "questions", pos: 0 })} />}
+        {st.stage === "results" && diagnosis && <Results d={diagnosis} onPlan={() => go("plan")} onEdit={() => go("questions")} />}
         {st.stage === "plan" && diagnosis && <Plan d={diagnosis} done={st.done} onToggle={(k) => setSt((s) => ({ ...s, done: { ...s.done, [k]: !s.done[k] } }))} onNext={() => go("closing")} />}
         {st.stage === "closing" && diagnosis && (
           <Closing insight={st.insight} commitment={st.commitment} retest={st.retest} onChange={patch} onDownload={download} pdfBusy={pdfBusy} pdfError={pdfError} />

@@ -147,8 +147,6 @@ export const CLOSING = {
     commitment: "Mi primer compromiso para esta semana:",
     retest: "Vuelvo a hacer este test el:",
   },
-  ctaLead: "¿Quieres acompañamiento para dar",
-  ctaStrong: "EL SIGUIENTE PASO?",
 };
 
 export const BRAND = {
