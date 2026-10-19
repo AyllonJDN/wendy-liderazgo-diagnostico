@@ -164,4 +164,9 @@ export const BRAND = {
   name: "Wendy Wünder",
   handle: "@WendyWunderOficial",
   footer: "Wendy Wünder · Autodiagnóstico de liderazgo",
+  socials: [
+    { id: "instagram", label: "Instagram", url: "https://www.instagram.com/wendywunderoficial/" },
+    { id: "linkedin", label: "LinkedIn", url: "https://www.linkedin.com/in/wendywunder/" },
+    { id: "youtube", label: "YouTube", url: "https://www.youtube.com/@wendywunderoficial" },
+  ],
 };

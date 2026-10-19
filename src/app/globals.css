@@ -123,6 +123,22 @@ body {
   border-color: currentColor;
 }
 
+.social-link {
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 999px;
+  border: 1.5px solid currentColor;
+  color: inherit;
+  transition: transform 0.15s ease, background 0.15s ease, color 0.15s ease;
+}
+.social-link:hover {
+  background: #fff;
+  color: var(--red);
+  transform: translateY(-2px);
+}
+
 .link-btn {
   background: none;
   border: 0;

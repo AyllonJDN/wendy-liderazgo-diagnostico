@@ -1,17 +1,20 @@
 import Image from "next/image";
 import { BLOCKS, BRAND, COVER } from "@/data/leadership";
-import { Logo, Star } from "./ui";
+import { Logo, Socials, Star } from "./ui";
 
 export default function Cover({ onStart }: { onStart: () => void }) {
   return (
     <section className="gradient-bg on-gradient relative overflow-hidden min-h-screen">
       <Star size={40} color="var(--yellow)" className="absolute left-[46%] top-[14%] hidden md:block" />
       <Star size={18} color="#fff" className="absolute left-[8%] top-[48%] hidden md:block" />
-      <div className="wrap relative grid md:grid-cols-[1.25fr_1fr] gap-6 pt-6 md:pt-8 min-h-screen">
+      <div className="wrap relative grid md:grid-cols-[1.1fr_1fr] gap-6 md:max-w-[84rem] pt-6 md:pt-8 min-h-screen">
         <div className="flex flex-col pb-10 md:pb-14 z-10">
           <header className="flex items-center justify-between text-sm">
             <Logo />
-            <span className="kicker hidden sm:block">{BRAND.handle}</span>
+            <span className="flex items-center gap-4">
+              <span className="kicker hidden lg:block">{BRAND.handle}</span>
+              <Socials />
+            </span>
           </header>
 
           <div className="mt-12 md:mt-16">
@@ -57,7 +60,7 @@ export default function Cover({ onStart }: { onStart: () => void }) {
             width={919}
             height={1733}
             priority
-            className="h-auto w-[62%] md:w-full max-w-[26rem] md:max-h-[88vh] object-contain object-bottom"
+            className="h-auto w-[78%] sm:w-[60%] md:w-full max-w-[36rem] md:max-h-[98vh] object-contain object-bottom"
           />
         </div>
       </div>

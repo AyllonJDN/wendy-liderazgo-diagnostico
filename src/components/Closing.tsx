@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { CLOSING } from "@/data/leadership";
 import { addDays, toISODate } from "@/lib/diagnosis";
-import { Star } from "./ui";
+import { Socials, Star } from "./ui";
 
 type Props = {
   insight: string;
@@ -18,8 +18,8 @@ export default function Closing({ insight, commitment, retest, onChange, onDownl
   return (
     <section className="gradient-bg on-gradient relative overflow-hidden">
       <Star size={36} color="var(--yellow)" className="absolute right-[40%] top-14 hidden md:block" />
-      <div className="wrap grid md:grid-cols-[1.4fr_1fr] gap-8 py-12 md:py-20">
-        <div>
+      <div className="wrap md:max-w-[84rem] grid md:grid-cols-[1.2fr_1fr] gap-8 pt-12 md:pt-20 pb-0 items-stretch">
+        <div className="pb-12 md:pb-20">
           <p className="kicker flex items-center gap-3 mb-4">
             <Star size={12} color="var(--yellow)" /> {CLOSING.kicker}
           </p>
@@ -72,6 +72,7 @@ export default function Closing({ insight, commitment, retest, onChange, onDownl
               <li key={c}>{c}</li>
             ))}
           </ul>
+          <Socials className="mt-5" />
 
           <div className="mt-10">
             <p className="kicker mb-2">{CLOSING.sourcesTitle}</p>
@@ -79,8 +80,8 @@ export default function Closing({ insight, commitment, retest, onChange, onDownl
           </div>
         </div>
 
-        <div className="flex items-end justify-center">
-          <Image src="/wendy-cierre.png" alt="Wendy Wünder celebrando" width={951} height={2475} className="h-auto w-[60%] md:w-full max-w-xs md:max-h-[85vh] object-contain object-bottom" />
+        <div className="flex items-end justify-center md:justify-end">
+          <Image src="/wendy-cierre.png" alt="Wendy Wünder celebrando" width={951} height={2475} className="h-auto w-[70%] sm:w-[50%] md:w-full max-w-[26rem] md:max-h-[95vh] object-contain object-bottom" />
         </div>
       </div>
     </section>
