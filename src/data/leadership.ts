@@ -149,15 +149,6 @@ export const CLOSING = {
   },
   ctaLead: "¿Quieres acompañamiento para dar",
   ctaStrong: "EL SIGUIENTE PASO?",
-  ctaText: "Escríbeme «LÍDER» por DM y te cuento cómo trabajamos juntos.",
-  contacts: ["@WendyWunderOficial", "jona@wwin.pe", "isabel@wwin.pe"],
-  sourcesTitle: "FUENTES",
-  sources: [
-    "Gallup, State of the American Manager",
-    "Gallup, investigaciones sobre feedback y compromiso",
-    "Google re:Work, Project Oxygen y Project Aristotle",
-    "Amy C. Edmondson, The Fearless Organization",
-  ],
 };
 
 export const BRAND = {

@@ -66,18 +66,15 @@ export default function Closing({ insight, commitment, retest, onChange, onDownl
           <p className="display text-3xl md:text-4xl">
             <em>{CLOSING.ctaStrong}</em>
           </p>
-          <p className="mt-3 text-lg max-w-lg">{CLOSING.ctaText}</p>
-          <ul className="mt-5 flex flex-wrap gap-x-6 gap-y-1 font-bold">
-            {CLOSING.contacts.map((c) => (
-              <li key={c}>{c}</li>
-            ))}
-          </ul>
+          <a
+            className="btn btn-light mt-6"
+            href="https://calendly.com/infowendywunder/30min"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Quiero agendar una llamada
+          </a>
           <Socials className="mt-5" />
-
-          <div className="mt-10">
-            <p className="kicker mb-2">{CLOSING.sourcesTitle}</p>
-            <p className="text-sm opacity-90 max-w-xl leading-relaxed">{CLOSING.sources.join(" · ")}.</p>
-          </div>
         </div>
 
         <div className="flex items-end justify-center md:absolute md:bottom-0 md:right-10 md:h-[80%]">

@@ -1,4 +1,4 @@
-import { Document, Font, Image, Page, Path, Rect, Defs, LinearGradient, Stop, Svg, StyleSheet, Text, View } from "@react-pdf/renderer";
+import { Document, Font, Image, Link, Page, Path, Rect, Defs, LinearGradient, Stop, Svg, StyleSheet, Text, View } from "@react-pdf/renderer";
 import { BLOCKS, BRAND, CLOSING, COVER, LEVELS, PLAN, PROFILES } from "@/data/leadership";
 import { actionKey, type Diagnosis } from "@/lib/diagnosis";
 
@@ -224,13 +224,9 @@ export function DiagnosisPdf({ diagnosis: d, done, insight, commitment, retestLa
         <View style={{ marginTop: 22, backgroundColor: C.red, borderRadius: 8, padding: 16 }} wrap={false}>
           <Text style={{ color: "#FFFFFF", fontSize: 13 }}>{CLOSING.ctaLead}</Text>
           <Text style={{ color: "#FFFFFF", fontSize: 20, fontWeight: 700, fontStyle: "italic", marginBottom: 6 }}>{CLOSING.ctaStrong}</Text>
-          <Text style={{ color: "#FFFFFF", lineHeight: 1.4 }}>{CLOSING.ctaText}</Text>
-          <Text style={{ color: "#FFFFFF", fontWeight: 700, marginTop: 8 }}>{CLOSING.contacts.join("   ·   ")}</Text>
-        </View>
-
-        <View style={{ marginTop: 20 }} wrap={false}>
-          <Text style={[s.kicker, { color: C.muted }]}>{CLOSING.sourcesTitle}</Text>
-          <Text style={[s.p, { fontSize: 9, color: C.muted }]}>{CLOSING.sources.join(" · ")}.</Text>
+          <Link src="https://calendly.com/infowendywunder/30min" style={{ color: "#FFFFFF", fontWeight: 700, textDecoration: "underline" }}>
+            Quiero agendar una llamada
+          </Link>
         </View>
       </Page>
     </Document>
